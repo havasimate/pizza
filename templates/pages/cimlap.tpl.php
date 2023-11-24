@@ -1,7 +1,7 @@
     <main>
         <div class="welcome">
             <div class="welcomeText">
-                <h1>Üdvözöm Carlito Pizzériájában!</h1>
+                <h1>Üdvözlöm Carlito Pizzériájában!</h1>
                 <h3>Eredeti magyaros pizzák</h3>
             </div>
         </div>

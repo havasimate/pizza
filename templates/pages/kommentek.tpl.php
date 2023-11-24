@@ -1,9 +1,8 @@
 <?php
 try {
-    $dbh = new PDO(
-        'mysql:host=127.0.0.1;dbname=Pizzeria',
-        'root',
-        '',
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=pizzeria2',
+    'pizzeria2',
+    'x2Hkt839Dw',
         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
     );
     $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');

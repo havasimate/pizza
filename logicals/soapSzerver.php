@@ -13,9 +13,10 @@ class Pizzak
     );
 
     try {
-      $dbh = new PDO('mysql:host=127.0.0.1;dbname=pizzeria2',
-      'pizzeria2',
-      'x2Hkt839Dw',
+      $dbh = new PDO(
+        'mysql:host=127.0.0.1;dbname=pizzeria2',
+        'pizzeria2',
+        'x2Hkt839Dw',
         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
       );
       $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
@@ -37,7 +38,12 @@ class Pizzak
     $eredmeny = array("hibakod" => 0, "uzenet" => "", "ar" => 0);
 
     try {
-      $dbh = new PDO('mysql:host=localhost;dbname=Pizzeria', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+      $dbh = new PDO(
+        'mysql:host=127.0.0.1;dbname=pizzeria2',
+        'pizzeria2',
+        'x2Hkt839Dw',
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+      );
       $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
 
       $sql = "SELECT k.ar FROM `pizza` AS p JOIN kategoria AS k ON p.kategorianev = k.nev WHERE p.nev = :pizzaNev;";
@@ -60,34 +66,34 @@ class Pizzak
   }
 
   public function getPizzaRendelesek($pizzaNev)
-{
+  {
     $eredmeny = array(
-        "hibakod" => 0,
-        "uzenet" => "",
-        "rendeles" => array()
+      "hibakod" => 0,
+      "uzenet" => "",
+      "rendeles" => array()
     );
 
     try {
-        $dbh = new PDO(
-            'mysql:host=localhost;dbname=Pizzeria',
-            'root',
-            '',
-            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-        );
-        $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
+      $dbh = new PDO(
+        'mysql:host=127.0.0.1;dbname=pizzeria2',
+        'pizzeria2',
+        'x2Hkt839Dw',
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+      );
+      $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
 
-        $sql = "SELECT darab, felvetel, kiszallitas FROM `rendeles` WHERE rendeles.pizzanev = :pizzanev;";
-        $sth = $dbh->prepare($sql);
-        $sth->bindParam(':pizzanev', $pizzaNev, PDO::PARAM_STR);
-        $sth->execute();
-        $eredmeny['rendeles'] = $sth->fetchAll(PDO::FETCH_ASSOC);
+      $sql = "SELECT darab, felvetel, kiszallitas FROM `rendeles` WHERE rendeles.pizzanev = :pizzanev;";
+      $sth = $dbh->prepare($sql);
+      $sth->bindParam(':pizzanev', $pizzaNev, PDO::PARAM_STR);
+      $sth->execute();
+      $eredmeny['rendeles'] = $sth->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        $eredmeny["hibakod"] = 1;
-        $eredmeny["uzenet"] = "Adatbázis hiba: " . $e->getMessage();
+      $eredmeny["hibakod"] = 1;
+      $eredmeny["uzenet"] = "Adatbázis hiba: " . $e->getMessage();
     }
 
     return $eredmeny;
-}
+  }
 
 
   public function getPizza()
@@ -100,9 +106,9 @@ class Pizzak
 
     try {
       $dbh = new PDO(
-        'mysql:host=localhost;dbname=Pizzeria',
-        'root',
-        '',
+        'mysql:host=127.0.0.1;dbname=pizzeria2',
+        'pizzeria2',
+        'x2Hkt839Dw',
         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
       );
       $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
@@ -129,9 +135,9 @@ class Pizzak
 
     try {
       $dbh = new PDO(
-        'mysql:host=localhost;dbname=Pizzeria',
-        'root',
-        '',
+        'mysql:host=127.0.0.1;dbname=pizzeria2',
+        'pizzeria2',
+        'x2Hkt839Dw',
         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
       );
       $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
@@ -158,9 +164,9 @@ class Pizzak
 
     try {
       $dbh = new PDO(
-        'mysql:host=localhost;dbname=Pizzeria',
-        'root',
-        '',
+        'mysql:host=127.0.0.1;dbname=pizzeria2',
+        'pizzeria2',
+        'x2Hkt839Dw',
         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
       );
       $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
@@ -179,7 +185,7 @@ class Pizzak
 }
 
 $options = array(
-  "uri" => "http://localhost/beadando1/logicals/soapSzerver.php"
+  "uri" => "http://gorogritabead1.nhely.hu/logicals/soapSzerver.php"
 );
 
 $server = new SoapServer(null, $options);

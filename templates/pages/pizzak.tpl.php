@@ -2,24 +2,26 @@
 
 <h1>Pizza History</h1>
 <?php
-//Globális változók megadása és az adatbázisból kiolvasó függvények meghívása.
 $client =  new SoapClient(null, array(
-    'location' => "http://localhost/beadando1/logicals/soapSzerver.php",
-    'uri' => "http://localhost/beadando1/logicals/soapSzerver.php",
+    'location' => "http://gorogritabead1.nhely.hu/logicals/soapSzerver.php",
+    'uri' => "http://gorogritabead1.nhely.hu/logicals/soapSzerver.php",
     'trace' => 1,
     'exceptions' => 1,
     'soap_version' => SOAP_1_2,
     'style' => SOAP_RPC,
     'use' => SOAP_ENCODED
 ));
-$pizzak = $client->__soapCall("getPizza", array());;
+try {
+    $pizzak = $client->__soapCall("getPizza", array());
+} catch (SoapFault $fault) {
+    echo "SOAP hiba: " . $fault->getMessage();
+}
 $rendelesek = $client->getRendeles();
 ?>
 
 
 <form style="background-color:transparent; width: fit-content; margin-left:auto; margin-right:auto;" name="tableselect" text="Tábla választás" method="POST">
     <select style="margin-left:auto; margin-right:auto;" name="pizza" required="required" onchange="javascript:tableselect.submit();">
-        <!--Legördülő menü, amiben kiválaszthatjuk a lekérdezni kívánt megyét--->
         <option value="">Válasszon pizzat!</option>
         <?php
         foreach ($pizzak['nev'] as $pizza) { ?>
@@ -33,13 +35,12 @@ $rendelesek = $client->getRendeles();
     <?php
 
     try {
-        $pizzaNev = $_POST['pizza']; // Ezt cseréld le a kiválasztott pizza névére
+        $pizzaNev = $_POST['pizza'];
 
         $response = $client->__soapCall("getPizzaAr", array($pizzaNev));
 
         if ($response->hibakod == 0) {
             echo "Az ár: " . $response["ar"] . " Ft";
-            // var_dump($response);
         } else {
             echo "Hiba: " . $response->uzenet;
         }
@@ -51,15 +52,6 @@ $rendelesek = $client->getRendeles();
 
     ?>
         </select>
-        <!--A küldés gomb, amivel liírjuk egy táblázatba a kiválasztásokhoz kapcsolható szílerőműveket és tulajdonságaikat.-->
-        <!-- <input style="margin-top:20px;" class="btn btn-outline-primary btn-sm btn-block" type="submit" name="kiir" value="Kiírás"> -->
-        <?php
-        //Ellenőrizzük, hogy választottunk-e értékeket a listákból és hogy a kiir gombot megnyomtuk-e.
-        ?>
-
-        <!-- <div class="table-responsive text-nowrap table-hover">
-                <table class="table table-striped"> -->
-        <!--Az erőművek kiírása táblázatba.-->
         <br>
         <br>
         <br>
@@ -85,8 +77,6 @@ $rendelesek = $client->getRendeles();
         } ?>
     </tbody>
 </table>
-
-        <!-- </div> -->
 
 </form>
 </main>
