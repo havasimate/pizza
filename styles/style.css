@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+}
+
+header img {
+    float: left;
+    min-width: 10rem;
+    padding-left: 10px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+}
+
+li a {
+    float: right;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    background: black;
+    margin: 25px 20px 0 0;
+    border-radius: 10px;
+    transition: color .3s, background .3s;
+}
+
+li a:hover,
+.registForm button:hover,
+.searchFrom button:hover,
+.login button:hover {
+    background: white;
+    color: black;
+    cursor: pointer;
+    text-shadow: 2px 2px pink;
+}
+
+#nav-link {
+    float: right;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    background: black;
+    margin: 25px 20px 0 0;
+    border-radius: 10px;
+    transition: color .3s, background .3s;
+}
+
+#nav-link:hover {
+    background: white;
+    color: black;
+    cursor: pointer;
+    text-shadow: 2px 2px pink;
+}
+
+h3 {
+    white-space: pre;
+}
+
+h4 {
+    text-align: center;
+}
+
+video {
+    border: 1px solid pink;
+    outline: plum solid 2px;
+    border-radius: 10px;
+}
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#content {
+    color: white;
+}
+
+.actual {
+    background-color: blueviolet;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+}
+
+.welcome {
+    display: flex;
+    margin: 3rem 30px 7rem 30px;
+}
+
+.welcome button {
+    background-color: pink;
+    border-radius: 10px;
+    box-shadow: 0px 0px 11px 0px pink;
+    font-size: 2rem;
+    margin-left: 4rem;
+    cursor: pointer;
+    animation-name: button;
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+    padding: 3.5rem;
+    cursor: default;
+
+}
+
+.wrapper {
+    max-width: 1200px;
+    width: 90%;
+    background: black;
+    margin: 0 auto;
+    min-height: 100vh;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 0px black;
+}
+
+.login {
+    text-align: right;
+    font-size: 1rem;
+    margin: 2rem 2rem 0 0;
+}
+
+.login button {
+    border-radius: 10px;
+    color: white;
+    background: black;
+    padding: 6px;
+    border: 1px solid pink;
+}
+
+.iframe {
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    margin: 2rem 10%;
+    padding-top: 56.25%;
+}
+
+.video {
+    justify-content: center;
+    display: flex;
+}
+
+.btn {
+    margin: 20px 0;
+}
+
+
+legend {
+    text-align: center;
+    font-style: italic;
+}
+
+.registForm form {
+    text-align: left;
+    margin: 2vh 20%;
+    padding: 2.5rem;
+    font-size: 1.5rem;
+}
+
+.registForm input {
+    text-align: left;
+    margin: 2vh 20%;
+    font-size: 1.5rem;
+}
+
+.registForm button,
+.searchFrom button {
+    font-size: 1.5rem;
+    margin: 10px 35%;
+    color: white;
+    background-color: black;
+    border: 1px solid pink;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=tel]:focus,
+input[type=email]:focus {
+    background-color: pink;
+}
+
+/* -------------Search-------------------*/
+.searchFrom form {
+    text-align: center;
+    margin: 4rem 30%;
+    font-size: 1.5rem;
+}
+
+.searchFrom li {
+    text-align: left;
+    margin: 1.3rem;
+}
+
+#ideal h1 {
+    text-align: center;
+}
+
+/* -------------About-------------------*/
+.intro,
+.adoptation {
+    line-height: 2;
+    text-align: justify;
+    margin: 0 30px;
+}
+
+.intro img,
+.adoptation img {
+    max-width: 80%;
+    margin: 10px 10%;
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+    width: 80%;
+    margin: 4rem 10%;
+    border-radius: 10px;
+}
+
+table td,
+table th {
+    padding: 15px;
+    border: 1px solid red;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: rgba(255, 8, 8, 0.526);
+    color: white;
+
+}
+
+.contact {
+    text-align: justify;
+    font-size: 2rem;
+    margin: 4rem 20%;
+    border: 1px dashed red;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.contact a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+}
+
+
+/*--------nyomtatasi stiluslap fooldalhoz ----------*/
+@media print {
+
+    p,
+    h1,
+    h3,
+    h4 {
+        font-size: 12pt;
+        font-weight: lighter;
+    }
+
+    image,
+    button {
+        display: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+
+    .welcome,
+    footer {
+        margin: 0;
+    }
+
+    li a {
+        border: none;
+        font-size: 12pt;
+
+    }
+
+    #mainImage1,
+    #mainImage2,
+    #mainImage3 {
+        display: none;
+    }
+}
+
+@page {
+    margin: 0.5cm;
+}
+
+@media screen and (max-width: 600px) {
+    aside {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+
+    header img {
+        float: none;
+        display: block;
+        margin: 0 auto;
+        min-width: auto;
+        padding: 10px 0;
+    }
+
+    nav {
+        float: none;
+    }
+
+    li a {
+        float: none;
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .welcome {
+        flex-direction: column;
+        align-items: center;
+        margin: 3rem 0 7rem 0;
+    }
+
+    .welcome button {
+        margin: 2rem 0;
+        padding: 1.5rem;
+    }
+
+    .wrapper {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .iframe {
+        width: 100%;
+        padding-top: 56.25%;
+        margin: 2rem 0;
+    }
+
+    .mainImages {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-gap: 1rem;
+        margin: 2rem 0;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .wrapper {
+        max-width: 90%;
+    }
+}
+
+
+@media (min-width: 992px) {
+
+    .mainImages {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 300px;
+        margin: 30px;
+    }
+}
